@@ -7,7 +7,9 @@ target 'LivePlayerDemo' do
 
     # Pods for LivePlayerDemo
     pod 'AFNetworking'
+    pod 'FLEX', '~> 2.0', :configurations => ['Debug']
     pod 'Masonry'
+    pod 'ReactiveCocoa'
     pod 'YYModel'
     # pod 'BJHL-LivePlayer-iOS'
 
