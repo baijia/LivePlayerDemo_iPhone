@@ -8,22 +8,19 @@
 
 #import "AppDelegate.h"
 
+#import "BJLoginViewController.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    UIViewController *viewController = [UIViewController new];
-    viewController.view.backgroundColor = [UIColor orangeColor];
-    self.window.rootViewController = viewController;
+    self.window.rootViewController = [BJLoginViewController new];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
