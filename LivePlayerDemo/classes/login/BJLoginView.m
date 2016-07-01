@@ -11,13 +11,13 @@
 
 #import "BJLoginView.h"
 
+static CGFloat const textLeftMargin = 5.0;
+
 @interface _BJLoginTextField : UITextField
 
 @end
 
 @implementation _BJLoginTextField
-
-static CGFloat const textLeftMargin = 5.0;
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
     CGRect textRect = [super textRectForBounds:bounds];
@@ -44,9 +44,9 @@ static CGFloat const textLeftMargin = 5.0;
 @property (nonatomic) UIImageView *logoView;
 
 @property (nonatomic) UIView *inputContainerView, *inputSeparatorLine;
-@property (nonatomic) UITextField *codeTextField, *nameTextField;
+@property (nonatomic, readwrite) UITextField *codeTextField, *nameTextField;
 
-@property (nonatomic) UIButton *loginButton;
+@property (nonatomic, readwrite) UIButton *loginButton;
 
 @end
 
@@ -88,10 +88,12 @@ static CGFloat const textLeftMargin = 5.0;
         
         self.codeTextField = [self loginTextFieldWithIcon:[UIImage imageNamed:@"login-icon-code"]
                                               placeholder:@"请输入参加码"];
+        self.codeTextField.returnKeyType = UIReturnKeyNext;
         [self.inputContainerView addSubview:self.codeTextField];
         
         self.nameTextField = [self loginTextFieldWithIcon:[UIImage imageNamed:@"login-icon-name"]
                                               placeholder:@"请输入昵称"];
+        self.nameTextField.returnKeyType = UIReturnKeyDone;
         [self.inputContainerView addSubview:self.nameTextField];
         
         self.loginButton = ({
@@ -104,7 +106,7 @@ static CGFloat const textLeftMargin = 5.0;
             button.layer.masksToBounds = YES;
             button.titleLabel.font = [UIFont systemFontOfSize:16.0];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [button setTitle:@"登陆" forState:UIControlStateNormal];
+            [button setTitle:@"登录" forState:UIControlStateNormal];
             button;
         });
         [self addSubview:self.loginButton];

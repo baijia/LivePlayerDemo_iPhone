@@ -10,4 +10,8 @@
 
 @interface BJLoginView : UIView
 
+@property (nonatomic, readonly) UITextField *codeTextField, *nameTextField;
+
+@property (nonatomic, readonly) UIButton *loginButton;
+
 @end
