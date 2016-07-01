@@ -11,6 +11,7 @@
 		B5185F21A23ECA0756061E60 /* libPods-LivePlayerDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E60BFD8D8E1ED6FCD3B9EF /* libPods-LivePlayerDemoUITests.a */; };
 		BB06EF6E751A3AF1AD20B1A6 /* libPods-LivePlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DF0A1036223567865B816D /* libPods-LivePlayerDemo.a */; };
 		DF8A7A2B1D266A2D0074E06C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8A7A2A1D266A2D0074E06C /* LaunchScreen.storyboard */; };
+		DF8A7A2E1D266A8F0074E06C /* BJLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8A7A2D1D266A8F0074E06C /* BJLoginView.m */; };
 		DFF1D83B1D26538A00079C14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF1D83A1D26538A00079C14 /* main.m */; };
 		DFF1D83E1D26538A00079C14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF1D83D1D26538A00079C14 /* AppDelegate.m */; };
 		DFF1D8461D26538A00079C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF1D8451D26538A00079C14 /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 		A07D81F82970250816DE370F /* Pods-LivePlayerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivePlayerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LivePlayerDemoTests/Pods-LivePlayerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A21C745C8A14A96F2DB00A63 /* Pods-LivePlayerDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivePlayerDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LivePlayerDemoUITests/Pods-LivePlayerDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF8A7A2A1D266A2D0074E06C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DF8A7A2C1D266A8F0074E06C /* BJLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJLoginView.h; sourceTree = "<group>"; };
+		DF8A7A2D1D266A8F0074E06C /* BJLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJLoginView.m; sourceTree = "<group>"; };
 		DFF1D8361D26538900079C14 /* LivePlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF1D83A1D26538A00079C14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DFF1D83C1D26538A00079C14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,9 +142,9 @@
 		DFF1D8381D26538A00079C14 /* LivePlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DFF1D86C1D265CBB00079C14 /* classes */,
 				DFF1D83C1D26538A00079C14 /* AppDelegate.h */,
 				DFF1D83D1D26538A00079C14 /* AppDelegate.m */,
+				DFF1D86C1D265CBB00079C14 /* classes */,
 				DFF1D8451D26538A00079C14 /* Assets.xcassets */,
 				DFF1D84A1D26538A00079C14 /* Info.plist */,
 				DF8A7A2A1D266A2D0074E06C /* LaunchScreen.storyboard */,
@@ -187,6 +190,8 @@
 		DFF1D86D1D265CBB00079C14 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				DF8A7A2C1D266A8F0074E06C /* BJLoginView.h */,
+				DF8A7A2D1D266A8F0074E06C /* BJLoginView.m */,
 				DFF1D86E1D265D4900079C14 /* BJLoginViewController.h */,
 				DFF1D86F1D265D4900079C14 /* BJLoginViewController.m */,
 			);
@@ -454,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8A7A2E1D266A8F0074E06C /* BJLoginView.m in Sources */,
 				DFF1D83E1D26538A00079C14 /* AppDelegate.m in Sources */,
 				DFF1D8701D265D4900079C14 /* BJLoginViewController.m in Sources */,
 				DFF1D83B1D26538A00079C14 /* main.m in Sources */,
