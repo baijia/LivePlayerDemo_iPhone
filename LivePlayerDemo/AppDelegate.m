@@ -6,7 +6,9 @@
 //  Copyright © 2016年 GSX. All rights reserved.
 //
 
-#import <FLEX/FLEXManager.h>
+#if DEBUG
+#import <BJHL-Foundation-iOS/BJHL-Foundation-iOS.h>
+#endif
 
 #import "AppDelegate.h"
 
@@ -19,6 +21,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+#if DEBUG
+    [BJCFLog setLogLevel:BJCF_LOG_FLAG_DEBUG];
+#endif
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [BJLoginViewController new];
@@ -33,7 +39,6 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[FLEXManager sharedManager] showExplorer];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
