@@ -177,6 +177,7 @@ static CGFloat const textLeftMargin = 5.0;
     UITextField *textField = [_BJLoginTextField new];
     textField.font = [UIFont systemFontOfSize:fontSize];
     textField.textColor = [UIColor whiteColor];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.attributedPlaceholder = [[NSAttributedString alloc]
                                        initWithString:placeholder
                                        attributes:@{ NSFontAttributeName:
