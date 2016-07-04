@@ -41,7 +41,7 @@ static CGFloat const textLeftMargin = 5.0;
 
 @property (nonatomic) UIImageView *backgroundView;
 
-@property (nonatomic) UIImageView *logoView;
+@property (nonatomic) UIImageView *appLogoView, *logoView;
 
 @property (nonatomic) UIView *inputContainerView, *inputSeparatorLine;
 @property (nonatomic, readwrite) UITextField *codeTextField, *nameTextField;
@@ -62,6 +62,13 @@ static CGFloat const textLeftMargin = 5.0;
             imageView;
         });
         [self addSubview:self.backgroundView];
+        
+        self.appLogoView = ({
+            UIImageView *imageView = [UIImageView new];
+            imageView.image = [UIImage imageNamed:@"login-logo-app"];
+            imageView;
+        });
+        [self addSubview:self.appLogoView];
         
         self.logoView = ({
             UIImageView *imageView = [UIImageView new];
@@ -144,9 +151,14 @@ static CGFloat const textLeftMargin = 5.0;
             make.size.mas_equalTo(CGSizeMake(31.0, 31.0));
         }];
         
-        [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.appLogoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
             make.bottom.equalTo(self.inputContainerView.mas_top).with.offset(- 32.0);
+        }];
+        
+        [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.bottom.equalTo(self).with.offset(- 40.0);
         }];
         
         [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {

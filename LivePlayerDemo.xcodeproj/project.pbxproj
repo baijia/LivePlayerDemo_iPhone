@@ -50,7 +50,7 @@
 		DF8A7A2A1D266A2D0074E06C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF8A7A2C1D266A8F0074E06C /* BJLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJLoginView.h; sourceTree = "<group>"; };
 		DF8A7A2D1D266A8F0074E06C /* BJLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJLoginView.m; sourceTree = "<group>"; };
-		DFF1D8361D26538900079C14 /* LivePlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF1D8361D26538900079C14 /* 百家云DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百家云DEV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF1D83A1D26538A00079C14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DFF1D83C1D26538A00079C14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DFF1D83D1D26538A00079C14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		DFF1D8371D26538900079C14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DFF1D8361D26538900079C14 /* LivePlayerDemo.app */,
+				DFF1D8361D26538900079C14 /* 百家云DEV.app */,
 				DFF1D84F1D26538A00079C14 /* LivePlayerDemoTests.xctest */,
 				DFF1D85A1D26538A00079C14 /* LivePlayerDemoUITests.xctest */,
 			);
@@ -218,7 +218,7 @@
 			);
 			name = LivePlayerDemo;
 			productName = LivePlayerDemo;
-			productReference = DFF1D8361D26538900079C14 /* LivePlayerDemo.app */;
+			productReference = DFF1D8361D26538900079C14 /* 百家云DEV.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DFF1D84E1D26538A00079C14 /* LivePlayerDemoTests */ = {
@@ -588,7 +588,7 @@
 				INFOPLIST_FILE = LivePlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjhl.LivePlayerDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "百家云DEV";
 			};
 			name = Debug;
 		};
@@ -600,7 +600,7 @@
 				INFOPLIST_FILE = LivePlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjhl.LivePlayerDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "百家云";
 			};
 			name = Release;
 		};
