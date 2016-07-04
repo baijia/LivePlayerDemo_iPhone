@@ -112,68 +112,47 @@ static NSString * const BJNameKey = @"BJName";
     self.loginView.nameTextField.enabled = NO;
     self.loginView.loginButton.enabled = NO;
     
-    [self loginWithCode:self.loginView.codeTextField.text
-                   name:self.loginView.nameTextField.text];
+    [self loginWithJoinCode:self.loginView.codeTextField.text
+                   userName:self.loginView.nameTextField.text];
 }
 
-- (void)loginWithCode:(NSString *)code name:(NSString *)name {
+- (void)loginWithJoinCode:(NSString *)joinCode userName:(NSString *)userName {
     self.loginView.codeTextField.enabled = YES;
     self.loginView.nameTextField.enabled = YES;
     self.loginView.loginButton.enabled = YES;
     
     // @see http://git.baijiahulian.com/wiki/im/wikis/open-gsxlive-design
-    [self.urlSessionManager GET:@"/appapi/room/quickenter"
-                     parameters:@{ @"code": code ?: @"",
-                                   @"user_name": name ?: @"" }
+    [self.urlSessionManager GET:@"/appapi/room/codeinfo"
+                     parameters:@{ @"code": joinCode ?: @"" }
                         success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseData) {
                             NSDictionary *responseObject = [responseData lp_asDictionary];
                             
                             NSInteger code = [responseObject BJCF_integerForKey:@"code"];
                             NSDictionary *data = [[responseObject objectForKey:@"data"] lp_asDictionary];
                             
-                            NSDictionary *classData = [[data objectForKey:@"class_data"] lp_asDictionary];
-                            NSDictionary *userData = [[data objectForKey:@"user_data"] lp_asDictionary];
-                            
-                            if (code != LP_CODE_ERROR_SUC
-                                || !classData
-                                || !userData) {
+                            if (code != LP_CODE_ERROR_SUC) {
                                 NSLog(@"task <#%@#> failure with response <#%@#>", task, responseData);
                                 return ;
                             }
                             NSLog(@"task <#%@#> success with response <#%@#>", task, responseData);
                             
-                            [self enterRoomWithRoomID:[classData BJCF_stringForKey:@"room_id"]
-                                           userNumber:[userData BJCF_stringForKey:@"user_number"]
-                                             userName:[userData BJCF_stringForKey:@"user_name"]
-                                             userRole:[userData BJCF_integerForKey:@"user_role"]
-                                           userAvatar:[userData BJCF_stringForKey:@"user_avatar"]];
+#if DEBUG
+                            LPDeployEnvType deployType = LP_DEPLOY_TEST;
+#else
+                            LPDeployEnvType deployType = LP_DEPLOY_WWW;
+#endif
+                            LPUserType userRole = [data BJCF_integerForKey:@"user_role"];
+                            [[LPLivePlayerSDK sharedInstance] enterRoomWithJoinCode:joinCode
+                                                                           userName:userName
+                                                                           userRole:userRole
+                                                                         deployType:deployType
+                                                                         completion:^(BOOL suc, LPError * _Nullable error) {
+                                                                             NSLog(@"enter room <#%@#>", suc ? @"success" : error);
+                                                                         }];
                         }
                         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                             NSLog(@"task <#%@#> failure with error <#%@#>", task, error);
                         }];
-}
-
-- (void)enterRoomWithRoomID:(NSString *)roomID
-                 userNumber:(NSString *)userNumber
-                   userName:(NSString *)userName
-                   userRole:(LPUserType)userRole
-                 userAvatar:(NSString *)userAvatar {
-#if DEBUG
-    LPDeployEnvType deployType = LP_DEPLOY_TEST;
-#else
-    LPDeployEnvType deployType = LP_DEPLOY_WWW;
-#endif
-    [[LPLivePlayerSDK sharedInstance] enterRoom:roomID
-                                     userNumber:userNumber
-                                       userName:userName
-                                       userRole:userRole
-                                     userAvatar:userAvatar
-                                     deployType:deployType
-                                           sign:@"ddd" // TODO: MingLQ - <#(nonnull NSString *)#>
-                                      partnerId:@"" // TODO: MingLQ - <#(nonnull NSString *)#>
-                                     completion:^(BOOL suc, LPError * _Nullable error) {
-                                         NSLog(@"enter room <#%@#>", suc ? @"success" : error);
-                                     }];
 }
 
 #pragma mark - <UITextFieldDelegate>
