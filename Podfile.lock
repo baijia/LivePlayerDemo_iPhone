@@ -183,7 +183,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   BJHL-LivePlayer-iOS:
-    :commit: eb4d7b0032baf0c3bd23c080913fef1a63da98f4
+    :commit: 20e941899689f0e1343df09701691e87454f2163
     :git: http://git.baijiahulian.com/mobileliveplayer/liveplayer-iOS.git
 
 SPEC CHECKSUMS:
