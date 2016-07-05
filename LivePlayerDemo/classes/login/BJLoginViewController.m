@@ -8,6 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import <BJHL-LivePlayer-iOS/BJHL-LivePlayer-iOS.h>
@@ -146,9 +147,26 @@ static NSString * const BJNameKey = @"BJName";
                                                                            userName:userName
                                                                            userRole:userRole
                                                                          deployType:deployType
-                                                                         completion:^(BOOL suc, LPError * _Nullable error) {
-                                                                             NSLog(@"enter room <#%@#>", suc ? @"success" : error);
-                                                                         }];
+                                                                         completion:^(BOOL suc, LPError * _Nullable error)
+                             {
+                                 if (!suc) {
+                                     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+                                     [self.view addSubview:hud];
+                                     
+                                     hud.mode = MBProgressHUDModeText;
+                                     hud.minShowTime = 0.5;
+                                     hud.removeFromSuperViewOnHide = YES;
+                                     // hud.passThroughTouches = YES;
+                                     
+                                     // hud.labelText = message;
+                                     hud.detailsLabelText = error.message;
+                                     hud.detailsLabelFont = hud.labelFont;
+                                     hud.detailsLabelColor = hud.labelColor;
+                                     
+                                     [hud show:YES];
+                                     [hud hide:YES afterDelay:3.0];
+                                 }
+                             }];
                         }
                         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                             NSLog(@"task <#%@#> failure with error <#%@#>", task, error);
