@@ -133,7 +133,7 @@ static NSString * const BJNameKey = @"BJName";
                             
                             if (code != LP_CODE_ERROR_SUC) {
                                 NSLog(@"task <#%@#> failure with response <#%@#>", task, responseData);
-                                return ;
+                                return;
                             }
                             NSLog(@"task <#%@#> success with response <#%@#>", task, responseData);
                             
@@ -149,6 +149,8 @@ static NSString * const BJNameKey = @"BJName";
                                                                          deployType:deployType
                                                                          completion:^(BOOL suc, LPError * _Nullable error)
                              {
+                                 NSLog(@"enter room <#%@#>", suc ? @"success" : error);
+                                 
                                  if (!suc) {
                                      MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
                                      [self.view addSubview:hud];
@@ -170,6 +172,22 @@ static NSString * const BJNameKey = @"BJName";
                         }
                         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                             NSLog(@"task <#%@#> failure with error <#%@#>", task, error);
+                            
+                            MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+                            [self.view addSubview:hud];
+                            
+                            hud.mode = MBProgressHUDModeText;
+                            hud.minShowTime = 0.5;
+                            hud.removeFromSuperViewOnHide = YES;
+                            // hud.passThroughTouches = YES;
+                            
+                            // hud.labelText = message;
+                            hud.detailsLabelText = error.localizedDescription;
+                            hud.detailsLabelFont = hud.labelFont;
+                            hud.detailsLabelColor = hud.labelColor;
+                            
+                            [hud show:YES];
+                            [hud hide:YES afterDelay:3.0];
                         }];
 }
 
