@@ -122,10 +122,14 @@ static NSString * const BJNameKey = @"BJName";
     self.loginView.nameTextField.enabled = YES;
     self.loginView.loginButton.enabled = YES;
     
+    @weakify(self);
+    
     // @see http://git.baijiahulian.com/wiki/im/wikis/open-gsxlive-design
     [self.urlSessionManager GET:@"/appapi/room/codeinfo"
                      parameters:@{ @"code": joinCode ?: @"" }
                         success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseData) {
+                            @strongify(self);
+                            
                             NSDictionary *responseObject = [responseData lp_asDictionary];
                             
                             NSInteger code = [responseObject BJCF_integerForKey:@"code"];
@@ -133,6 +137,7 @@ static NSString * const BJNameKey = @"BJName";
                             
                             if (code != LP_CODE_ERROR_SUC) {
                                 NSLog(@"task <#%@#> failure with response <#%@#>", task, responseData);
+                                [self showMessage:[responseObject BJCF_stringForKey:@"msg"]];
                                 return;
                             }
                             NSLog(@"task <#%@#> success with response <#%@#>", task, responseData);
@@ -150,45 +155,35 @@ static NSString * const BJNameKey = @"BJName";
                                                                          completion:^(BOOL suc, LPError * _Nullable error)
                              {
                                  NSLog(@"enter room <#%@#>", suc ? @"success" : error);
-                                 
                                  if (!suc) {
-                                     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
-                                     [self.view addSubview:hud];
-                                     
-                                     hud.mode = MBProgressHUDModeText;
-                                     hud.minShowTime = 0.5;
-                                     hud.removeFromSuperViewOnHide = YES;
-                                     // hud.passThroughTouches = YES;
-                                     
-                                     // hud.labelText = message;
-                                     hud.detailsLabelText = error.message;
-                                     hud.detailsLabelFont = hud.labelFont;
-                                     hud.detailsLabelColor = hud.labelColor;
-                                     
-                                     [hud show:YES];
-                                     [hud hide:YES afterDelay:3.0];
+                                     [self showMessage:error.message];
                                  }
                              }];
                         }
                         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                            @strongify(self);
+                            
                             NSLog(@"task <#%@#> failure with error <#%@#>", task, error);
-                            
-                            MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
-                            [self.view addSubview:hud];
-                            
-                            hud.mode = MBProgressHUDModeText;
-                            hud.minShowTime = 0.5;
-                            hud.removeFromSuperViewOnHide = YES;
-                            // hud.passThroughTouches = YES;
-                            
-                            // hud.labelText = message;
-                            hud.detailsLabelText = error.localizedDescription;
-                            hud.detailsLabelFont = hud.labelFont;
-                            hud.detailsLabelColor = hud.labelColor;
-                            
-                            [hud show:YES];
-                            [hud hide:YES afterDelay:3.0];
+                            [self showMessage:error.localizedDescription];
                         }];
+}
+
+- (void)showMessage:(NSString *)message {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
+    
+    hud.mode = MBProgressHUDModeText;
+    hud.minShowTime = 0.5;
+    hud.removeFromSuperViewOnHide = YES;
+    // hud.passThroughTouches = YES;
+    
+    // hud.labelText = message;
+    hud.detailsLabelText = message;
+    hud.detailsLabelFont = hud.labelFont;
+    hud.detailsLabelColor = hud.labelColor;
+    
+    [hud show:YES];
+    [hud hide:YES afterDelay:3.0];
 }
 
 #pragma mark - <UITextFieldDelegate>
