@@ -598,11 +598,13 @@
 			baseConfigurationReference = 0CE3AC073D63D51D765BE265 /* Pods-LivePlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baijiahulian Co.,Ltd.";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LivePlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjhl.LivePlayerDemo;
 				PRODUCT_NAME = "百家云";
+				PROVISIONING_PROFILE = "c96f4d8f-c8b9-4ed7-9fc6-baac0fc90588";
 			};
 			name = Release;
 		};
