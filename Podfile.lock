@@ -26,76 +26,13 @@ PODS:
   - BJHL-ImageSelect-iOS (0.1.7):
     - BJHL-Kit-iOS
     - LLSimpleCamera (~> 4.2.0)
-  - BJHL-Kit-iOS (1.1.6):
-    - BJHL-Foundation-iOS
-    - BJHL-Kit-iOS/list (= 1.1.6)
-    - BJHL-Kit-iOS/UIAlertView (= 1.1.6)
-    - BJHL-Kit-iOS/UICommon (= 1.1.6)
-    - BJHL-Kit-iOS/UIImage (= 1.1.6)
-    - BJHL-Kit-iOS/UIImageView (= 1.1.6)
-    - BJHL-Kit-iOS/UIKeyBoard (= 1.1.6)
-    - BJHL-Kit-iOS/UIScrollView (= 1.1.6)
-    - BJHL-Kit-iOS/UIView (= 1.1.6)
-    - BJHL-Kit-iOS/viewController (= 1.1.6)
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/list (1.1.6):
+  - BJHL-Kit-iOS (1.1.7):
     - BJHL-Foundation-iOS
     - JSBadgeView
     - MJRefresh
     - PureLayout
     - SDWebImage
-  - BJHL-Kit-iOS/UIAlertView (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UICommon (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UIImage (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UIImageView (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UIKeyBoard (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UIScrollView (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/UIView (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-Kit-iOS/viewController (1.1.6):
-    - BJHL-Foundation-iOS
-    - JSBadgeView
-    - MJRefresh
-    - PureLayout
-    - SDWebImage
-  - BJHL-LivePlayer-iOS (0.3.0):
+  - BJHL-LivePlayer-iOS (1.0.0):
     - BJHL-AVSDK-iOS
     - BJHL-Foundation-iOS
     - BJHL-ImageSelect-iOS
@@ -111,15 +48,7 @@ PODS:
     - PureLayout
     - ReactiveCocoa
     - XLEasyCache
-  - BJHL-Network-iOS (1.0.11):
-    - AFNetworking (~> 2.5.3)
-    - BJHL-Foundation-iOS
-    - BJHL-Network-iOS/Log (= 1.0.11)
-    - BJHL-Network-iOS/Maa (= 1.0.11)
-  - BJHL-Network-iOS/Log (1.0.11):
-    - AFNetworking (~> 2.5.3)
-    - BJHL-Foundation-iOS
-  - BJHL-Network-iOS/Maa (1.0.11):
+  - BJHL-Network-iOS (1.1.0):
     - AFNetworking (~> 2.5.3)
     - BJHL-Foundation-iOS
   - BJHL-Websocket-iOS (0.2.7):
@@ -150,8 +79,8 @@ PODS:
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
   - Masonry (1.0.1)
-  - MBProgressHUD (0.9.2)
-  - MJRefresh (3.1.9)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
   - PureLayout (3.0.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -170,31 +99,21 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - BJHL-LivePlayer-iOS (from `http://git.baijiahulian.com/mobileliveplayer/liveplayer-iOS.git`, branch `dev`)
+  - BJHL-LivePlayer-iOS
   - FLEX (~> 2.0)
   - Masonry
   - ReactiveCocoa
   - YYModel
 
-EXTERNAL SOURCES:
-  BJHL-LivePlayer-iOS:
-    :branch: dev
-    :git: http://git.baijiahulian.com/mobileliveplayer/liveplayer-iOS.git
-
-CHECKOUT OPTIONS:
-  BJHL-LivePlayer-iOS:
-    :commit: 20e941899689f0e1343df09701691e87454f2163
-    :git: http://git.baijiahulian.com/mobileliveplayer/liveplayer-iOS.git
-
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  BJHL-AVSDK-iOS: 61a157408c3cb8812b20cd25e48046845fb176e6
-  BJHL-Foundation-iOS: 01b58b99cd0f7b8a5e914334c31607b6a58c723f
-  BJHL-ImageSelect-iOS: f7529341b4abc2e7532069305794dc04b5bb73d7
-  BJHL-Kit-iOS: e931e819aaa7d81615ff4b16e74dfdcae0767706
-  BJHL-LivePlayer-iOS: e26a8342f4721161a1378ccaaefbae6b58fc8e2c
-  BJHL-Network-iOS: ceec454f3e484cf914c4d4c6ad4462d25f272061
-  BJHL-Websocket-iOS: 353848c7674fd86107718acd58f1d432dbe0a9f2
+  BJHL-AVSDK-iOS: 2a3e96f8a0442cbf872d9a9e0f8e668c8ab8c84b
+  BJHL-Foundation-iOS: 3d1d147a2b970508fb4e93a21416cf7a6e2360cf
+  BJHL-ImageSelect-iOS: 65c5e86a2b22cdc96ed3528ddc3a11f9f4eefa67
+  BJHL-Kit-iOS: 211458e33707ee90266e55c6feae8d3e03e3e6c6
+  BJHL-LivePlayer-iOS: 0c86b147ea5a9a0599cac96d6908f5f3d00c4e75
+  BJHL-Network-iOS: 128a82dc0e3f4e5a4219251d325941e29a02afd6
+  BJHL-Websocket-iOS: 621c4032b43aa7fd4e92f81d699529bd67f7b357
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
@@ -202,12 +121,12 @@ SPEC CHECKSUMS:
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   LKDBHelper: 78e6c0de99f45375892223a334535d745a123dbd
   LLSimpleCamera: ed7813ce4827ff3e34c6af159c99b5b56e54d1c6
-  LogStat: 6785fa26f51815d96d0739ebc9d9e246dccc784f
+  LogStat: 893d3b761b4d5a865933f94a685edd9cb40641c4
   LTInfiniteScrollView: 6ce2fcaf6d030a9e45a164ba9dcdb1b325a30d03
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
@@ -215,6 +134,6 @@ SPEC CHECKSUMS:
   XLEasyCache: d2bba5fc78004472961629dbf29ccca18b1388e2
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 70c0ec1e7aaf76252648d646eb22e084d1d113ef
+PODFILE CHECKSUM: 5739021023914a24c21ece2db1766c2f06885711
 
 COCOAPODS: 1.0.1

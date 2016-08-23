@@ -1,8 +1,7 @@
 # Uncomment this line to define a global platform for your project
 
 source 'https://github.com/CocoaPods/Specs.git'
-# TODO: github
-source 'http://git.baijiahulian.com/app/specs.git'
+source 'https://github.com/baijia/specs.git'
 
 # platform :ios, '9.0'
 
@@ -16,8 +15,7 @@ target 'LivePlayerDemo' do
     pod 'Masonry'
     pod 'ReactiveCocoa'
     pod 'YYModel'
-    # pod 'BJHL-LivePlayer-iOS'
-    pod 'BJHL-LivePlayer-iOS', :git => 'http://git.baijiahulian.com/mobileliveplayer/liveplayer-iOS.git', :branch => 'dev'
+    pod 'BJHL-LivePlayer-iOS'
 
     target 'LivePlayerDemoTests' do
         inherit! :search_paths
