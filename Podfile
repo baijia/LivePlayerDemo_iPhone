@@ -8,23 +8,22 @@ source 'https://github.com/baijia/specs.git'
 target 'LivePlayerDemo' do
     # Uncomment this line if you're using Swift or would like to use dynamic frameworks
     # use_frameworks!
-
+    
     # Pods for LivePlayerDemo
     pod 'AFNetworking'
-    pod 'FLEX', '~> 2.0', :configurations => ['Debug']
     pod 'Masonry'
-    pod 'ReactiveCocoa'
+    pod 'ReactiveCocoa', '~> 2.0'
     pod 'YYModel'
     pod 'BJHL-LivePlayer-iOS'
-
+    
     target 'LivePlayerDemoTests' do
         inherit! :search_paths
         # Pods for testing
     end
-
+    
     target 'LivePlayerDemoUITests' do
         inherit! :search_paths
         # Pods for testing
     end
-
+    
 end

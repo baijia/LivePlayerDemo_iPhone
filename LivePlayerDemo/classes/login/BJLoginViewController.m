@@ -122,50 +122,24 @@ static NSString * const BJNameKey = @"BJName";
     self.loginView.nameTextField.enabled = YES;
     self.loginView.loginButton.enabled = YES;
     
-    @weakify(self);
-    
-    // @see http://git.baijiahulian.com/wiki/im/wikis/open-gsxlive-design
-    [self.urlSessionManager GET:@"/appapi/room/codeinfo"
-                     parameters:@{ @"code": joinCode ?: @"" }
-                        success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseData) {
-                            @strongify(self);
-                            
-                            NSDictionary *responseObject = [responseData lp_asDictionary];
-                            
-                            NSInteger code = [responseObject BJCF_integerForKey:@"code"];
-                            NSDictionary *data = [[responseObject objectForKey:@"data"] lp_asDictionary];
-                            
-                            if (code != LP_CODE_ERROR_SUC) {
-                                NSLog(@"task <#%@#> failure with response <#%@#>", task, responseData);
-                                [self showMessage:[responseObject BJCF_stringForKey:@"msg"]];
-                                return;
-                            }
-                            NSLog(@"task <#%@#> success with response <#%@#>", task, responseData);
-                            
 #if DEBUG
-                            LPDeployEnvType deployType = LP_DEPLOY_TEST;
+    LPDeployEnvType deployType = LP_DEPLOY_TEST;
 #else
-                            LPDeployEnvType deployType = LP_DEPLOY_WWW;
+    LPDeployEnvType deployType = LP_DEPLOY_WWW;
 #endif
-                            LPUserType userRole = [data BJCF_integerForKey:@"user_role"];
-                            [[LPLivePlayerSDK sharedInstance] enterRoomWithJoinCode:joinCode
-                                                                           userName:userName
-                                                                           userRole:userRole
-                                                                         deployType:deployType
-                                                                         completion:^(BOOL suc, LPError * _Nullable error)
-                             {
-                                 NSLog(@"enter room <#%@#>", suc ? @"success" : error);
-                                 if (!suc) {
-                                     [self showMessage:error.message];
-                                 }
-                             }];
-                        }
-                        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                            @strongify(self);
-                            
-                            NSLog(@"task <#%@#> failure with error <#%@#>", task, error);
-                            [self showMessage:error.localizedDescription];
-                        }];
+    
+    @weakify(self);
+    [[LPLivePlayerSDK sharedInstance] enterRoomWithJoinCode:joinCode
+                                                   userName:userName
+                                                 deployType:deployType
+                                                 completion:^(BOOL suc, LPError * _Nullable error)
+     {
+         @strongify(self);
+         NSLog(@"enter room <#%@#>", suc ? @"success" : error);
+         if (!suc) {
+             [self showMessage:error.message];
+         }
+     }];
 }
 
 - (void)showMessage:(NSString *)message {
@@ -178,12 +152,12 @@ static NSString * const BJNameKey = @"BJName";
     // hud.passThroughTouches = YES;
     
     // hud.labelText = message;
-    hud.detailsLabelText = message;
-    hud.detailsLabelFont = hud.labelFont;
-    hud.detailsLabelColor = hud.labelColor;
+    hud.detailsLabel.text = message;
+    hud.detailsLabel.font = hud.label.font;
+    hud.detailsLabel.textColor = hud.label.textColor;
     
-    [hud show:YES];
-    [hud hide:YES afterDelay:3.0];
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:3.0];
 }
 
 #pragma mark - <UITextFieldDelegate>
