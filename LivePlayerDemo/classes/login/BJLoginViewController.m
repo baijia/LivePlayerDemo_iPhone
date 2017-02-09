@@ -122,10 +122,9 @@ static NSString * const BJNameKey = @"BJName";
     self.loginView.nameTextField.enabled = YES;
     self.loginView.loginButton.enabled = YES;
     
-#if DEBUG
-    LPDeployEnvType deployType = LP_DEPLOY_TEST;
-#else
     LPDeployEnvType deployType = LP_DEPLOY_WWW;
+#if DEBUG
+    // LPDeployEnvType deployType = LP_DEPLOY_TEST;
 #endif
     
     @weakify(self);
