@@ -26,7 +26,7 @@ target 'LivePlayerDemo' do
     pod 'LogStat', '0.3.2'
     
     pod 'AFNetworking', '~> 2.0'
-    pod 'FLEX', '~> 2.0', :configurations => ['Debug']
+    pod 'FLEX', '~> 2.0'
     pod 'ReactiveCocoa', '~> 2.0'
     
     target 'LivePlayerDemoTests' do
